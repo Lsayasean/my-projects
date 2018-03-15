@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tips</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+        <style>
+            body{
+                text-align: center;
+                background-color: #FFFCEC;
+            }
+            .container{
+                width: 80%;
+                margin: auto;
+                overflow: hidden;
+                background-color: whitesmoke;
+            }
+            header{
+                background-color: gray;
+                border-bottom: black 5px solid;
+            }
+            .space{
+                padding: 1%;
+            }
+        </style>
+    
+    </head>
+
+    <body>
+        <header class = "container">
+            <div>
+                <h1>Tipping Made Easy</h1>
+            </div>
+        </header>
+        
+            <div>
+                <div>
+                    <div class ="space">
+                        <label>Cost</label>
+                        <input id ="tot" type ="number" step ="0.01" min ="1" max ="999999"/>
+                    </div>
+                    <p>15% tip: <span id ="tip1"></span></p>
+                    <p>20% tip: <span id ="tip2"></span></p>
+                    <p>25% tip: <span id ="tip3"></span></p> 
+                    <button onclick ="tipsy()">Calculate</button>
+                </div>
+            </div>
+        <div>
+            <h2>Enjoy and please remember to tip!</h2>
+        </div>
+        
+        <script>
+            function tipsy(){
+                var input = document.getElementById('tot');
+                var bill = parseFloat(input.value);
+                var tip15 = bill * 0.15;
+                var tip20 = bill * 0.20;
+                var tip25 = bill * 0.25;
+                var included15 = tip15;
+                var included20 = tip20;
+                var included25 = tip25;
+            
+                document.getElementById('tip1').innerHTML = "$" + included15.toFixed(2);
+                document.getElementById('tip2').innerHTML = "$" + included20.toFixed(2);
+                document.getElementById('tip3').innerHTML = "$" + included25.toFixed(2);
+            }
+        </script>
+    </body> 
+</html>
