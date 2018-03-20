@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to Rock Paper Scissors</h1>
+        </div>
+        <div>
+            <button onclick ="run('Rock')" >Rock</button>
+            <button onclick = "run('Paper')">Paper</button>
+            <button onclick = "run('Scissor')">Scissor</button>
+        </div>
+        <div>
+            <p>Your score: </p>
+            <p><span id ="playa">0</span></p>
+            <p>Computer score: </p>
+            <p><span id ="comp">0</span></p>
+        </div>
+        <div>
+            <p>Computer Chooses:<br><span id ="result"></span></p>
+            <p>Result:<br><span id ="out"></span></p>
+        </div>
+        
+        <script>
+            var options =["rock","paper","scissor"];
+            var play = document.getElementById('playa');
+            var cpu = document.getElementById('comp');
+            var display = document.getElementById('out');
+            var cpuScore = 0;
+            var playScore = 0;
+            
+            function run(player){
+                var choiceComp = Math.floor((Math.random() * 3));
+                document.getElementById('result').innerHTML = options[choiceComp];
+                
+                switch (player){
+                    case 'Rock':
+                        if ('Rock' === choiceComp){
+                            display.innerHTML = "draw";
+                        } else if ('Rock' && choiceComp === 2){
+                            display.innerHTML = "You Won";
+                            play.innerHTML = playScore += 1;
+                        } else if ('Rock' && choiceComp === 1){
+                            display.innerHTML = "You Lost";
+                            cpu.innerHTML = cpuScore += 1;
+                        }
+                        break;
+                    case 'Paper':
+                        if ('Paper' && choiceComp){
+                            display.innerHTML = "draw";
+                        } else if ('Paper' && choiceComp === 0){
+                            display.innerHTML = "You Won";
+                            play.innerHTML = playScore += 1;
+                        } else if ('Paper' && choiceComp === 2){
+                            display.innerHTML = "You Lost";
+                            cpu.innerHTML = cpuScore += 1;
+                        }
+                        break;
+                    case 'Scissor':
+                        if ('Scissor' && choiceComp){
+                            display.innerHTML = "draw";
+                        } else if ('Scissor' && choiceComp === 1){
+                            display.innerHTML = "You Won";
+                            play.innerHTML = playScore += 1;
+                        } else if ('Scissor' && choiceComp === 0){
+                            display.innerHTML = "You Lost";
+                            cpu.innerHTML = cpuScore += 1;
+                        }
+                        break;
+                    default:
+                            display.innerHTML = "Try Again!";
+                }
+            }
+            
+            
+        </script>
+    </body>
+</html>
